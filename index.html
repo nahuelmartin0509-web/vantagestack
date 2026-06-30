@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VantageStack | Build. Automate. Rank.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- =============================================
+         PRELOADER (Tech Blink Effect)
+    ============================================== -->
+    <div id="preloader">
+        <img src="LOGO.png" alt="VantageStack" id="preloader-logo" width="280">
+    </div>
+
+    <!-- =============================================
+         PHASE 1: GLOBAL FLUID BACKGROUND
+         Flows seamlessly behind every section
+    ============================================== -->
+    <div id="bg">
+        <div class="orb o1"></div>
+        <div class="orb o2"></div>
+        <div class="orb o3"></div>
+        <div class="orb o4"></div>
+    </div>
+
+    <!-- CORNER BRANDING -->
+    <div id="corner-logo">VANTAGESTACK</div>
+
+    <!-- =============================================
+         PHASE 2: HERO SECTION & WEBGL LENS
+    ============================================== -->
+    <section id="hero">
+        <!-- WebGL Canvas for Desktop Lens Effect -->
+        <canvas id="hero-canvas"></canvas>
+        
+        <!-- Native Text Elements (Mobile Fallback / WebGL Hidden) -->
+        <div class="hero-content">
+            <h1>VANTAGESTACK</h1>
+            <p>CONSTRUYE. AUTOMATIZA. POSICIONA.</p>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="7 10 12 15 17 10"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- =============================================
+         CINEMATIC VIDEO SHOWCASE
+    ============================================== -->
+    <section id="video-showcase">
+        <div class="container text-center">
+            <h2 class="video-heading">Experiencias digitales diseñadas para generar ingresos.</h2>
+            <div class="video-wrapper">
+                <video src="./CATH.mp4" autoplay loop muted playsinline class="cinematic-video"></video>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         PHASE 3: PORTFOLIO SHOWCASE
+         Horizontal Scroll & Image Fidelity
+    ============================================== -->
+    <section id="portfolio-pin">
+        <div id="portfolio-track">
+            <!-- 9 Image Cards with object-fit: contain and info overlays -->
+            <div class="p-card">
+                <img src="ejemplo1.webp" alt="Rediseño de Plataforma SaaS">
+                <div class="p-info">
+                    <h3>Rediseño de Plataforma SaaS</h3>
+                    <p>Rediseñado para retención y claridad.</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <img src="ejemplo2.webp" alt="Lanzamiento de E-commerce">
+                <div class="p-info">
+                    <h3>Lanzamiento de E-commerce</h3>
+                    <p>Un lanzamiento de tienda impecable centrado en conversiones.</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <img src="ejemplo3.webp" alt="SEO Basado en Datos">
+                <div class="p-info">
+                    <h3>SEO Basado en Datos</h3>
+                    <p>Dominando la intención de búsqueda y los rankings del nicho.</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <img src="ejemplo4.webp" alt="Flujo de Automatización CRM">
+                <div class="p-info">
+                    <h3>Flujo de Automatización CRM</h3>
+                    <p>Eliminando la entrada manual de datos a gran escala.</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <img src="ejemplo5.webp" alt="Web App Fintech">
+                <div class="p-info">
+                    <h3>Web App Fintech</h3>
+                    <p>Paneles financieros seguros y ultra rápidos.</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <img src="ejemplo6.webp" alt="Generación de Leads B2B">
+                <div class="p-info">
+                    <h3>Generación de Leads B2B</h3>
+                    <p>Arquitecturas de embudo automatizado de alta conversión.</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <img src="ejemplo7.webp" alt="Sistema de Identidad de Marca">
+                <div class="p-info">
+                    <h3>Sistema de Identidad de Marca</h3>
+                    <p>Creando experiencias digitales premium para marcas.</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <img src="ejemplo8.webp" alt="E-commerce Headless">
+                <div class="p-info">
+                    <h3>E-commerce Headless</h3>
+                    <p>Arquitectura desacoplada extremadamente rápida.</p>
+                </div>
+            </div>
+            <div class="p-card">
+                <img src="ejemplo9.webp" alt="Portal de Integración de IA">
+                <div class="p-info">
+                    <h3>Portal de Integración de IA</h3>
+                    <p>Conectando modelos de lenguaje directamente con la lógica de negocio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         PHASE 4: ECOSYSTEM PLACEHOLDER
+    ============================================== -->
+    <section id="ecosystem">
+        <div class="container">
+            <h2>Integrado con las Plataformas Líderes del Mundo</h2>
+            <div class="logo-row">
+                <!-- Google - Inline SVG (High-Fidelity) -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="partner-icon p-google" aria-label="Google">
+                    <path fill="currentColor" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+                </svg>
+
+                <img src="https://cdn.simpleicons.org/shopify/a3a3a3" data-gray-src="https://cdn.simpleicons.org/shopify/a3a3a3" data-color-src="https://cdn.simpleicons.org/shopify/96BF48" alt="Shopify" class="partner-icon" />
+                
+                <img src="https://cdn.simpleicons.org/whatsapp/a3a3a3" data-gray-src="https://cdn.simpleicons.org/whatsapp/a3a3a3" data-color-src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" class="partner-icon" />
+                <img src="https://cdn.simpleicons.org/telegram/a3a3a3" data-gray-src="https://cdn.simpleicons.org/telegram/a3a3a3" data-color-src="https://cdn.simpleicons.org/telegram/26A5E4" alt="Telegram" class="partner-icon" />
+                <img src="https://cdn.simpleicons.org/meta/a3a3a3" data-gray-src="https://cdn.simpleicons.org/meta/a3a3a3" data-color-src="https://cdn.simpleicons.org/meta/0668E1" alt="Meta" class="partner-icon" />
+                <img src="https://cdn.simpleicons.org/instagram/a3a3a3" data-gray-src="https://cdn.simpleicons.org/instagram/a3a3a3" data-color-src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram" class="partner-icon" />
+                <img src="https://cdn.simpleicons.org/youtube/a3a3a3" data-gray-src="https://cdn.simpleicons.org/youtube/a3a3a3" data-color-src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube" class="partner-icon" />
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         PHASE 4: FOOTER & CONTACT (Canchero Edition)
+    ============================================== -->
+    <footer id="site-footer">
+        <div class="container footer-layout">
+            <div class="footer-left">
+                <h2>¿Listo para automatizar tu éxito?</h2>
+                <form id="contact-form">
+                    <input type="text" name="name" placeholder="Nombre" required class="field">
+                    <input type="email" name="email" placeholder="Correo electrónico" required class="field">
+                    <input type="text" name="company" placeholder="Empresa" required class="field">
+                    <button type="submit" class="btn submit-btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/nahuelmartin0509/30min'});return false;">Agenda tu Consulta Hoy</button>
+                </form>
+            </div>
+            
+            <div class="footer-right">
+                <div class="footer-col availability">
+                    <h4>DISPONIBLE EN</h4>
+                    <ul>
+                        <li><span class="dot"></span>Argentina</li>
+                        <li><span class="dot"></span>USA</li>
+                        <li><span class="dot"></span>CANADA</li>
+                        <li><span class="dot"></span>MEXICO</li>
+                        <li class="world">MUNDO</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col links">
+                    <h4>REDES</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/vantage.stack/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                    
+                    <h4 style="margin-top:2.5rem;">CONTACTO</h4>
+                    <ul>
+                        <li><a href="mailto:info@vantagestack.online">info@vantagestack.online</a></li>
+                    </ul>
+                    
+                    <h4 style="margin-top:2.5rem;">FUNDADOR</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/_mart.os/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px;">
+                            <img src="https://cdn.simpleicons.org/instagram/ffffff" width="18" height="18" alt="Instagram" /> Nahuel Martin Lucena
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="legal-links">
+                <span>© 2026 VantageStack por Nahuel Martin Lucena</span>
+                <a href="privacy-policy.html">POLÍTICA DE PRIVACIDAD</a>
+                <a href="terms-of-service.html">TÉRMINOS</a>
+            </div>
+            <a href="#hero" class="top-btn" aria-label="Back to top">SUBIR &uarr;</a>
+        </div>
+    </footer>
+
+    <!-- CDN Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

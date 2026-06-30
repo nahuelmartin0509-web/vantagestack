@@ -1,0 +1,507 @@
+/* ================================================
+   RESET & BASE
+   ================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+    background: transparent;
+}
+
+/* ================================================
+   PRELOADER (Tech Blink Effect)
+   ================================================ */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #000000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+#preloader.done {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+#preloader-logo {
+    width: min(280px, 60vw);
+    height: auto;
+    opacity: 0; /* base state before animation starts */
+    animation: digitalBlink 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes digitalBlink {
+    0%   { opacity: 0; }
+    10%  { opacity: 1; }
+    20%  { opacity: 0.2; }
+    40%  { opacity: 1; }
+    60%  { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* ================================================
+   PHASE 1: GLOBAL UNBROKEN BACKGROUND
+   ================================================ */
+#bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: #04040c; /* Deep obsidian base */
+    overflow: hidden;
+    pointer-events: none;
+}
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.8;
+}
+/* Navy and Magenta orbs abstracting the layout */
+.o1 { background: #1f3bb3; width: 40vw; height: 40vw; top: -10%; left: -10%; animation: float1 20s infinite alternate; }
+.o2 { background: #a11466; width: 35vw; height: 35vw; bottom: 10%; right: -5%; animation: float2 25s infinite alternate; }
+.o3 { background: #5900b3; width: 30vw; height: 30vw; bottom: -10%; left: 20%; animation: float3 22s infinite alternate; }
+.o4 { background: #0063a1; width: 25vw; height: 25vw; top: 20%; right: 20%; animation: float1 18s infinite alternate-reverse; }
+
+@keyframes float1 { 0% { transform: translate(0, 0); } 100% { transform: translate(10vw, 5vh); } }
+@keyframes float2 { 0% { transform: translate(0, 0); } 100% { transform: translate(-8vw, -10vh); } }
+@keyframes float3 { 0% { transform: translate(0, 0); } 100% { transform: translate(5vw, -5vh); } }
+
+/* CORNER BRANDING */
+#corner-logo {
+    position: fixed;
+    top: 2rem;
+    right: 3rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    z-index: 100;
+}
+
+/* ================================================
+   PHASE 2: HERO SECTION
+   ================================================ */
+#hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.hero-content {
+    text-align: center;
+    z-index: 5;
+    pointer-events: none;
+}
+.hero-content h1 {
+    font-size: clamp(3rem, 10vw, 8.5rem);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+.hero-content p {
+    font-size: clamp(0.9rem, 1.8vw, 1.25rem);
+    letter-spacing: 0.3em;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* Scroll Down Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    width: 40px;
+    height: 40px;
+    z-index: 20; /* Above WebGL canvas */
+    animation: bounceScroll 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    pointer-events: none;
+}
+@keyframes bounceScroll {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0.4; }
+    50% { transform: translate(-50%, 15px); opacity: 1; }
+}
+
+/* ================================================
+   CINEMATIC VIDEO SHOWCASE
+   ================================================ */
+#video-showcase {
+    padding: 8rem 5vw 4rem;
+    position: relative;
+    z-index: 10;
+}
+.text-center {
+    text-align: center;
+}
+.video-heading {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    margin-bottom: 3rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.cinematic-video {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05); /* Premium glassmorphic lift */
+    background: #000; /* Subtle fallback color before video loads */
+}
+
+/* ================================================
+   PHASE 3: PORTFOLIO SHOWCASE
+   ================================================ */
+#portfolio-pin {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    padding-top: 10vh; /* Centering offset */
+}
+#portfolio-track {
+    display: flex;
+    height: 80vh;
+    padding: 0 5vw;
+    gap: 1.5rem; /* Tight gap */
+}
+.p-card {
+    flex-shrink: 0;
+    /* 3 cards visible on desktop */
+    width: calc((100vw - 10vw - 3rem) / 3); 
+    height: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+}
+/* Gradient overlay to make white text pop */
+.p-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 45%);
+    pointer-events: none;
+    z-index: 1;
+}
+.p-card img {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    /* CRITICAL: images are fully displayed uncropped */
+    object-fit: contain; 
+    padding: 2rem 2rem 5rem 2rem; /* Add extra padding at bottom so image doesn't clash with text */
+}
+.p-info {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+    z-index: 2;
+}
+.p-info h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: #ffffff;
+}
+.p-info p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* ================================================
+   PHASE 4: ECOSYSTEM PLACEHOLDER
+   ================================================ */
+#ecosystem {
+    padding: 8rem 5vw;
+    text-align: center;
+}
+#ecosystem h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+.logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem 4rem;
+    min-height: 100px;
+}
+.partner-icon {
+    width: 48px;
+    height: auto;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.partner-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Inline SVG Logo Coloring */
+svg.partner-icon {
+    color: #A3A3A3;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+svg.partner-icon.p-google:hover { color: #4285F4; }
+
+/* ================================================
+   PHASE 4: FOOTER / CONTACT (Monopo Hard Cut Style)
+   ================================================ */
+#site-footer {
+    position: relative;
+    z-index: 20; /* Hard cut over fluid background */
+    background: #000000;
+    padding: 8rem 5vw 3rem;
+    color: #ffffff;
+}
+.footer-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6rem;
+    margin-bottom: 6rem;
+}
+.footer-left h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin-bottom: 2.5rem;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+}
+.field {
+    width: 100%;
+    padding: 1rem 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-family: inherit;
+    font-size: 1.1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+.field:focus {
+    border-color: #ffffff;
+}
+.submit-btn {
+    align-self: flex-start;
+    margin-top: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 1.25rem 4rem;
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 8px; /* Slightly sharper tech edge rather than a full pill */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.submit-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.footer-right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6rem;
+}
+.footer-col h4 {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.5rem;
+}
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.footer-col ul li {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.footer-col ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+.footer-col ul li a:hover {
+    opacity: 0.6;
+}
+.availability .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #00ff66; /* Glowing active presence dot */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ff66;
+}
+.availability .world {
+    font-style: italic;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 2rem;
+}
+.legal-links {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    align-items: center;
+    flex-wrap: wrap;
+}
+.legal-links a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.legal-links a:hover {
+    color: #ffffff;
+}
+.top-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+}
+.top-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+/* ================================================
+   MOBILE RESPONSIVE
+   ================================================ */
+@media (max-width: 767px) {
+    #corner-logo { display: none; }
+    
+    /* Global Padding Reduction for tight screens */
+    #video-showcase { padding: 4rem 5vw 2rem; }
+    #ecosystem { padding: 4rem 5vw; }
+    #site-footer { padding: 5rem 5vw 2rem; }
+    
+    /* Hero disables WebGL on mobile */
+    #hero-canvas { display: none; }
+    .hero-content { opacity: 1 !important; display: block !important; }
+    .scroll-indicator { bottom: 2rem; }
+    
+    /* Cinematic Video */
+    .cinematic-video { border-radius: 8px; }
+    
+    /* Scale Portfolio for Mobile GSAP Scrubbing */
+    #portfolio-pin {
+        height: 100vh;
+        padding-top: 10vh;
+    }
+    #portfolio-track {
+        height: 70vh;
+        padding: 0 5vw;
+        gap: 1rem;
+        overflow: visible;
+    }
+    
+    /* 1 Card per view but let GSAP track move them */
+    .p-card {
+        width: 85vw;
+        flex-shrink: 0;
+    }
+    
+    #ecosystem h2 { font-size: 1.4rem; margin-bottom: 2rem; line-height: 1.3; }
+    
+    .logo-row {
+        gap: 1.75rem 1.5rem;
+    }
+    .partner-icon {
+        width: 32px;
+    }
+    .partner-icon:hover {
+        transform: none; /* Disable scaling on touch screens */
+    }
+    
+    /* Inline SVGs stay permanently colored on mobile */
+    svg.partner-icon.p-google { color: #4285F4; }
+    
+    /* Footer Stack & Spacing */
+    .footer-left h2 { font-size: 2rem; text-align: center; }
+    #contact-form { align-items: center; }
+    .submit-btn { width: 100%; text-align: center; margin-top: 1rem; }
+    
+    .footer-layout {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        margin-bottom: 3rem;
+    }
+    .footer-right {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center; /* Center footer columns on mobile */
+        text-align: center;
+        gap: 3rem;
+    }
+    .footer-col ul {
+        align-items: center;
+    }
+    .footer-bottom {
+        flex-direction: column-reverse; /* Put top button above legal links if wanted, or let it stack naturally */
+        gap: 2rem;
+        padding-top: 1.5rem;
+    }
+    .legal-links {
+        justify-content: center;
+        gap: 1rem;
+    }
+}
