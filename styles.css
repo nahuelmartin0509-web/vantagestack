@@ -797,3 +797,54 @@ svg.partner-icon.p-google:hover { color: #4285F4; }
     
     .hero-eyebrow { font-size: 0.75rem; }
 }
+
+/* NUESTROS TRABAJOS GRID */
+#portfolio-grid-section {
+    padding: 8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+.work-card {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+.work-card:hover {
+    transform: translateY(-5px);
+}
+.work-img-wrapper {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.work-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.work-card:hover .work-img-wrapper img {
+    transform: scale(1.05);
+}
+.work-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.9);
+}
+
+@media (max-width: 768px) {
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
