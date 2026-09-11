@@ -101,8 +101,8 @@ body {
 }
 .hero-content {
     text-align: center;
-    z-index: 5;
-    pointer-events: none;
+    z-index: 20; /* Above WebGL canvas */
+    pointer-events: auto;
 }
 .hero-content h1 {
     font-size: clamp(3rem, 10vw, 8.5rem);
