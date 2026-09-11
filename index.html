@@ -31,8 +31,13 @@
         <div class="orb o4"></div>
     </div>
 
-    <!-- CORNER BRANDING -->
-    <div id="corner-logo">VANTAGESTACK</div>
+    <!-- =============================================
+         NAVBAR
+    ============================================== -->
+    <nav class="site-nav">
+        <div class="nav-logo">VANTAGESTACK</div>
+        <a href="https://wa.me/message/M6RQL6GWVAFLL1" target="_blank" rel="noopener noreferrer" class="nav-cta">Empezar proyecto</a>
+    </nav>
 
     <!-- =============================================
          PHASE 2: HERO SECTION & WEBGL LENS
@@ -43,8 +48,10 @@
         
         <!-- Native Text Elements (Mobile Fallback / WebGL Hidden) -->
         <div class="hero-content">
+            <span class="hero-eyebrow">Tucumán, Argentina</span>
             <h1>VANTAGESTACK</h1>
             <p>CONSTRUYE. AUTOMATIZA. POSICIONA.</p>
+            <a href="https://wa.me/message/M6RQL6GWVAFLL1" target="_blank" rel="noopener noreferrer" class="btn-primary hero-cta">Empezar mi proyecto</a>
         </div>
 
         <!-- Scroll Indicator -->
@@ -54,6 +61,17 @@
             </svg>
         </div>
     </section>
+
+    <!-- =============================================
+         TICKER
+    ============================================== -->
+    <div class="scrolling-ticker">
+        <div class="ticker-content">
+            <span>✦ DISEÑO WEB ✦ APPS MÓVILES ✦ SISTEMAS DE GESTIÓN ✦ BRANDING ✦ VANTAGESTACK ✦</span>
+            <span>✦ DISEÑO WEB ✦ APPS MÓVILES ✦ SISTEMAS DE GESTIÓN ✦ BRANDING ✦ VANTAGESTACK ✦</span>
+            <span>✦ DISEÑO WEB ✦ APPS MÓVILES ✦ SISTEMAS DE GESTIÓN ✦ BRANDING ✦ VANTAGESTACK ✦</span>
+        </div>
+    </div>
 
     <!-- =============================================
          CINEMATIC VIDEO SHOWCASE
@@ -68,73 +86,132 @@
     </section>
 
     <!-- =============================================
-         PHASE 3: PORTFOLIO SHOWCASE
-         Horizontal Scroll & Image Fidelity
+         BENEFITS / CHECKLIST
     ============================================== -->
-    <section id="portfolio-pin">
-        <div id="portfolio-track">
-            <!-- 9 Image Cards with object-fit: contain and info overlays -->
-            <div class="p-card">
-                <img src="ejemplo1.webp" alt="Rediseño de Plataforma SaaS">
-                <div class="p-info">
-                    <h3>Rediseño de Plataforma SaaS</h3>
-                    <p>Rediseñado para retención y claridad.</p>
-                </div>
+    <section id="benefits">
+        <div class="container benefits-container">
+            <div class="benefits-text">
+                <span class="benefits-eyebrow">Diseño responsive</span>
+                <h2>Tu negocio, en todos lados, al mismo tiempo.</h2>
+                <p>Sitios que se ven y funcionan igual de bien en cualquier dispositivo — sin perder calidad en ningún tamaño de pantalla.</p>
+                <a href="https://wa.me/message/M6RQL6GWVAFLL1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 2rem;">Hablemos de tu proyecto</a>
             </div>
-            <div class="p-card">
-                <img src="ejemplo2.webp" alt="Lanzamiento de E-commerce">
-                <div class="p-info">
-                    <h3>Lanzamiento de E-commerce</h3>
-                    <p>Un lanzamiento de tienda impecable centrado en conversiones.</p>
-                </div>
+            <div class="benefits-checklist">
+                <ul>
+                    <li><span class="check-icon">✓</span> Diseño adaptado a cada pantalla</li>
+                    <li><span class="check-icon">✓</span> Carga rápida en cualquier conexión</li>
+                    <li><span class="check-icon">✓</span> SEO optimizado para que te encuentren en Google</li>
+                    <li><span class="check-icon">✓</span> Integración directa con WhatsApp</li>
+                </ul>
             </div>
-            <div class="p-card">
-                <img src="ejemplo3.webp" alt="SEO Basado en Datos">
-                <div class="p-info">
-                    <h3>SEO Basado en Datos</h3>
-                    <p>Dominando la intención de búsqueda y los rankings del nicho.</p>
-                </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         NUESTROS TRABAJOS (GRID)
+    ============================================== -->
+    <section id="portfolio-grid-section">
+        <div class="container">
+            <h2 class="text-center" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 3rem; text-transform: uppercase;">Nuestros Trabajos</h2>
+            <div class="works-grid">
+                <!-- Bianchi Automotores -->
+                <a href="https://bianchiautomotores-xi.vercel.app/" target="_blank" rel="noopener noreferrer" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="WEBS/BIANCHI AUTOMOTORES.png" alt="Bianchi Automotores" loading="lazy">
+                    </div>
+                    <h3>BIANCHI AUTOMOTORES</h3>
+                </a>
+                
+                <!-- Portal Del Norte -->
+                <a href="https://portaldelnorte.com.ar" target="_blank" rel="noopener noreferrer" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="WEBS/PORTAL DEL NORTE.png" alt="Portal Del Norte" loading="lazy">
+                    </div>
+                    <h3>PORTAL DEL NORTE</h3>
+                </a>
+
+                <!-- Automotores Argentinos -->
+                <a href="https://automotoresargentinos.vercel.app/" target="_blank" rel="noopener noreferrer" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="WEBS/AUTOMOTORES ARGENTINOS.png" alt="Automotores Argentinos" loading="lazy">
+                    </div>
+                    <h3>AUTOMOTORES ARGENTINOS</h3>
+                </a>
+
+                <!-- Importado Multimedia -->
+                <a href="https://importadomultimedia.vercel.app/" target="_blank" rel="noopener noreferrer" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="WEBS/IMPORTADO MULTIMEDIA.png" alt="Importado Multimedia" loading="lazy">
+                    </div>
+                    <h3>IMPORTADO MULTIMEDIA</h3>
+                </a>
+
+                <!-- Fluxo -->
+                <a href="https://fl-xo.vercel.app/" target="_blank" rel="noopener noreferrer" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="WEBS/FLUXO CONTROL DE GASTOS.png" alt="Fluxo" loading="lazy">
+                    </div>
+                    <h3>FLUXO</h3>
+                </a>
+
+                <!-- Carta Electronica -->
+                <a href="https://cartaonline-flax.vercel.app/" target="_blank" rel="noopener noreferrer" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="WEBS/CARTA ELECTRONICA.png" alt="Carta Electrónica" loading="lazy">
+                    </div>
+                    <h3>CARTA ELECTRÓNICA</h3>
+                </a>
+
+                <!-- Street Parts -->
+                <a href="https://streetprt.vercel.app/" target="_blank" rel="noopener noreferrer" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="WEBS/STREET PARTS.png" alt="Street Parts" loading="lazy">
+                    </div>
+                    <h3>STREET PARTS</h3>
+                </a>
+
+                <!-- Sushiwood -->
+                <a href="https://sushiwood-beta.vercel.app/" target="_blank" rel="noopener noreferrer" class="work-card">
+                    <div class="work-img-wrapper">
+                        <img src="WEBS/SUSHIWOOD.png" alt="Sushiwood" loading="lazy">
+                    </div>
+                    <h3>SUSHIWOOD</h3>
+                </a>
             </div>
-            <div class="p-card">
-                <img src="ejemplo4.webp" alt="Flujo de Automatización CRM">
-                <div class="p-info">
-                    <h3>Flujo de Automatización CRM</h3>
-                    <p>Eliminando la entrada manual de datos a gran escala.</p>
-                </div>
+        </div>
+    </section>
+
+    <!-- POST-PORTFOLIO CTA -->
+    <section class="post-portfolio-cta text-center">
+        <div class="container">
+            <h2>¿Querés que tu negocio esté acá?</h2>
+            <a href="https://wa.me/message/M6RQL6GWVAFLL1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 1.5rem;">Hablemos por WhatsApp &rarr;</a>
+        </div>
+    </section>
+
+    <!-- =============================================
+         SOBRE MI / STACK
+    ============================================== -->
+    <section id="about">
+        <div class="container about-grid">
+            <div class="about-photo">
+                <img src="nahuel.jpg" alt="Nahuel Martin Lucena" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
             </div>
-            <div class="p-card">
-                <img src="ejemplo5.webp" alt="Web App Fintech">
-                <div class="p-info">
-                    <h3>Web App Fintech</h3>
-                    <p>Paneles financieros seguros y ultra rápidos.</p>
-                </div>
-            </div>
-            <div class="p-card">
-                <img src="ejemplo6.webp" alt="Generación de Leads B2B">
-                <div class="p-info">
-                    <h3>Generación de Leads B2B</h3>
-                    <p>Arquitecturas de embudo automatizado de alta conversión.</p>
-                </div>
-            </div>
-            <div class="p-card">
-                <img src="ejemplo7.webp" alt="Sistema de Identidad de Marca">
-                <div class="p-info">
-                    <h3>Sistema de Identidad de Marca</h3>
-                    <p>Creando experiencias digitales premium para marcas.</p>
-                </div>
-            </div>
-            <div class="p-card">
-                <img src="ejemplo8.webp" alt="E-commerce Headless">
-                <div class="p-info">
-                    <h3>E-commerce Headless</h3>
-                    <p>Arquitectura desacoplada extremadamente rápida.</p>
-                </div>
-            </div>
-            <div class="p-card">
-                <img src="ejemplo9.webp" alt="Portal de Integración de IA">
-                <div class="p-info">
-                    <h3>Portal de Integración de IA</h3>
-                    <p>Conectando modelos de lenguaje directamente con la lógica de negocio.</p>
+            <div class="about-content">
+                <span class="eyebrow">Sobre mí</span>
+                <h2>Conectando tecnología y estrategia.</h2>
+                <p>Soy Nahuel Martin Lucena, creador de VantageStack. Me especializo en construir ecosistemas digitales de alto rendimiento que no solo se ven increíbles, sino que están diseñados matemáticamente para convertir visitas en clientes y automatizar tus procesos más pesados.</p>
+                <div class="stack-chips">
+                    <span class="chip">Diseño web</span>
+                    <span class="chip">Apps móviles</span>
+                    <span class="chip">Sistemas de gestión</span>
+                    <span class="chip">E-commerce</span>
+                    <span class="chip">Branding</span>
+                    <span class="chip">Redes sociales</span>
+                    <span class="chip">Meta Ads</span>
+                    <span class="chip">Google Ads</span>
+                    <span class="chip">SEO</span>
+                    <span class="chip">WhatsApp Business</span>
                 </div>
             </div>
         </div>
@@ -179,19 +256,13 @@
             </div>
             
             <div class="footer-right">
-                <div class="footer-col availability">
-                    <h4>DISPONIBLE EN</h4>
-                    <ul>
-                        <li><span class="dot"></span>Argentina</li>
-                        <li><span class="dot"></span>USA</li>
-                        <li><span class="dot"></span>CANADA</li>
-                        <li><span class="dot"></span>MEXICO</li>
-                        <li class="world">MUNDO</li>
-                    </ul>
-                </div>
-                
                 <div class="footer-col links">
-                    <h4>REDES</h4>
+                    <h4>WHATSAPP</h4>
+                    <ul>
+                        <li><a href="https://wa.me/message/M6RQL6GWVAFLL1" target="_blank" rel="noopener noreferrer" style="font-size: 1.25rem; font-weight: 700;">Hablemos ahora &rarr;</a></li>
+                    </ul>
+
+                    <h4 style="margin-top:2.5rem;">REDES</h4>
                     <ul>
                         <li><a href="https://www.instagram.com/vantage.stack/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                         <li><a href="#">LinkedIn</a></li>
@@ -222,6 +293,11 @@
             <a href="#hero" class="top-btn" aria-label="Back to top">SUBIR &uarr;</a>
         </div>
     </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/message/M6RQL6GWVAFLL1" class="floating-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    </a>
 
     <!-- CDN Dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

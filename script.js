@@ -42,12 +42,14 @@
         var hero = document.getElementById('hero');
         
         if (!canvas || !hero || typeof THREE === 'undefined') {
-            document.querySelector('.hero-content').style.opacity = '1';
+            document.querySelector('.hero-content h1').style.opacity = '1';
+            document.querySelector('.hero-content p').style.opacity = '1';
             return;
         }
 
         // Hide fallback HTML text since we'll draw it in WebGL
-        document.querySelector('.hero-content').style.opacity = '0';
+        document.querySelector('.hero-content h1').style.opacity = '0';
+        document.querySelector('.hero-content p').style.opacity = '0';
 
         var W = hero.offsetWidth;
         var H = hero.offsetHeight;
