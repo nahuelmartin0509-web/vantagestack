@@ -505,3 +505,295 @@ svg.partner-icon.p-google:hover { color: #4285F4; }
         gap: 1rem;
     }
 }
+
+/* ================================================
+   NEW STRUCTURAL COMPONENTS (VANTAGESTACK REVAMP)
+   ================================================ */
+
+/* NAVBAR */
+.site-nav {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    z-index: 1000;
+    background: rgba(4, 4, 12, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-logo {
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+}
+.nav-cta {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.nav-cta:hover {
+    background: #fff;
+    color: #04040c;
+}
+
+/* HERO UPDATES */
+.hero-eyebrow {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+.hero-cta {
+    margin-top: 2rem;
+    display: inline-flex;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: #fff;
+    color: #04040c;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255,255,255,0.2);
+}
+
+/* TICKER */
+.scrolling-ticker {
+    width: 100%;
+    overflow: hidden;
+    background: rgba(161, 20, 102, 0.3);
+    padding: 0.6rem 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    white-space: nowrap;
+}
+.ticker-content {
+    display: flex;
+    gap: 3rem;
+    animation: tickerLoop 30s linear infinite;
+}
+.ticker-content span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+}
+@keyframes tickerLoop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.33%); }
+}
+
+/* BENEFITS SECTION */
+#benefits {
+    padding: 8rem 2rem;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+.benefits-eyebrow {
+    color: #a11466;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+.benefits-text h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+.benefits-text p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+}
+.benefits-checklist {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 3rem;
+    border-radius: 12px;
+}
+.benefits-checklist ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.benefits-checklist li {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 700;
+}
+.check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #1f3bb3;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.8rem;
+}
+
+/* PORTFOLIO CTAs */
+.p-cta {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 0.2rem;
+    transition: opacity 0.3s ease;
+}
+.p-cta:hover { opacity: 0.7; }
+
+.post-portfolio-cta {
+    padding: 6rem 2rem;
+    background: rgba(4,4,12,0.8);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.post-portfolio-cta h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+/* SOBRE MI / STACK */
+#about {
+    padding: 8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.about-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+.photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(255,255,255,0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.4);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+.about-content .eyebrow {
+    color: #1f3bb3;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+.about-content h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+.about-content p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+.stack-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+.chip {
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* FLOATING WHATSAPP BUTTON */
+.floating-wa {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    transition: transform 0.3s ease;
+}
+.floating-wa:hover {
+    transform: scale(1.1);
+}
+
+/* MOBILE RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .site-nav { padding: 1rem 1.5rem; }
+    .nav-logo { font-size: 1rem; }
+    .nav-cta { font-size: 0.75rem; padding: 0.5rem 1rem; }
+    
+    .benefits-container, .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .benefits-checklist { padding: 2rem; }
+    
+    #benefits, #about, .post-portfolio-cta { padding: 4rem 1.5rem; }
+    .floating-wa { bottom: 1.5rem; right: 1.5rem; width: 55px; height: 55px; }
+    
+    .hero-eyebrow { font-size: 0.75rem; }
+}
