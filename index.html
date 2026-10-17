@@ -32,12 +32,31 @@
     </div>
 
     <!-- =============================================
-         NAVBAR (Logo único, prominente)
+         NAVBAR (Logo + Atajos + Instagram + Menú Hamburguesa en Móvil)
     ============================================== -->
-    <nav class="site-nav">
+    <nav class="site-nav" id="navbar">
         <a href="#hero" class="nav-brand">
             <img src="LOGO.png" alt="esfácil" class="nav-logo-img">
         </a>
+
+        <!-- Menú de Navegación / Atajos -->
+        <div class="nav-menu" id="navMenu">
+            <a href="#ecosistema-servicios" class="nav-link">SERVICIOS</a>
+            <a href="#portfolio-grid-section" class="nav-link">SITIOS WEB</a>
+            <a href="#equipo" class="nav-link">CONOCENOS</a>
+            <a href="https://www.instagram.com/esfacilshop/" target="_blank" rel="noopener noreferrer" class="nav-instagram" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Botón Menú Móvil (3 Líneas) -->
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
     </nav>
 
     <!-- =============================================
@@ -100,8 +119,7 @@
                         <h3>Tráfico</h3>
                     </div>
                     <ul class="ecosystem-list">
-                        <li><span class="eco-bullet">✦</span> SEO (Posicionamiento Orgánico)</li>
-                        <li><span class="eco-bullet">✦</span> Pauta Digital & Ads (Meta & Google)</li>
+                        <li><span class="eco-bullet">✦</span> SEO y Ads</li>
                     </ul>
                 </div>
 
@@ -113,17 +131,16 @@
                     </div>
                     <ul class="ecosystem-list">
                         <li><span class="eco-bullet">✦</span> IA Interactiva Administrativa</li>
-                        <li><span class="eco-bullet">✦</span> CRM Potenciado con IA</li>
-                        <li><span class="eco-bullet">✦</span> Automatización de Procesos</li>
-                        <li><span class="eco-bullet">✦</span> Aplicaciones y Desarrollo a Medida</li>
-                        <li><span class="eco-bullet">✦</span> Diseño de Sistemas y Gestión</li>
+                        <li><span class="eco-bullet">✦</span> CRM con IA</li>
+                        <li><span class="eco-bullet">✦</span> Automatización</li>
+                        <li><span class="eco-bullet">✦</span> Aplicaciones y Diseño</li>
                     </ul>
                 </div>
             </div>
 
             <!-- Explicación de servicios conectados -->
             <p class="ecosystem-footer-text">
-                Todos estos servicios funcionan conectados de manera sinérgica bajo nuestro acompañamiento estratégico continuo, garantizando que cada área de tu empresa potencie a las demás para escalar tus resultados.
+                Todos estos servicios funcionan conectados bajo nuestro acompañamiento estratégico.
             </p>
 
             <a href="https://wa.me/message/M6RQL6GWVAFLL1" target="_blank" rel="noopener noreferrer" class="btn-primary ecosystem-cta">
@@ -133,7 +150,7 @@
     </section>
 
     <!-- =============================================
-         EMPRESAS QUE NOS ACOMPAÑAN
+         EMPRESAS QUE NOS ACOMPAÑAN (Fondo Limpio, 3 en 3 en Móvil)
     ============================================== -->
     <section id="empresas-acompanan">
         <div class="container text-center">
@@ -164,7 +181,7 @@
     </section>
 
     <!-- =============================================
-         CREACIÓN WEB (ANTES NUESTROS TRABAJOS)
+         CREACIÓN WEB (Fondo Limpio, 4 en 4 en Móvil)
     ============================================== -->
     <section id="portfolio-grid-section">
         <div class="container text-center">
@@ -173,7 +190,7 @@
             <p class="section-subtitle">
                 Creamos webs 100% funcionales y optimizadas con los algoritmos de búsqueda, conectadas a tus principales redes sociales y listas para cerrar clientes.
             </p>
-            <div style="margin-bottom: 3.5rem;">
+            <div style="margin-bottom: 2.5rem;">
                 <a href="https://wa.me/message/M6RQL6GWVAFLL1" target="_blank" rel="noopener noreferrer" class="btn-primary">
                     QUIERO MI SITIO WEB &rarr;
                 </a>
@@ -256,7 +273,7 @@
                 <span class="benefits-eyebrow">Diseño responsive</span>
                 <h2>Tu negocio, en todos lados, al mismo tiempo.</h2>
                 <p>Sitios que se ven y funcionan igual de bien en cualquier dispositivo — sin perder calidad en ningún tamaño de pantalla.</p>
-                <a href="https://wa.me/message/M6RQL6GWVAFLL1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 2rem;">Hablemos de tu proyecto</a>
+                <a href="https://wa.me/message/M6RQL6GWVAFLL1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 1.5rem;">Hablemos de tu proyecto</a>
             </div>
             <div class="benefits-checklist">
                 <ul>
@@ -270,21 +287,21 @@
     </section>
 
     <!-- =============================================
-         NUESTRO EQUIPO (2 PRINCIPALES + 3 SECUNDARIAS)
+         NUESTRO EQUIPO (2 Principales a la par + 3 Secundarias debajo)
     ============================================== -->
     <section id="equipo">
         <div class="container text-center">
             <span class="section-eyebrow">Personas & Visión</span>
             <h2 class="section-title">Nuestro equipo</h2>
-            <p class="section-subtitle" style="margin-bottom: 3.5rem;">
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">
                 Profesionales especializados y comprometidos en impulsar el éxito y la transformación digital de tu marca.
             </p>
 
-            <!-- Tarjetas Principales (2 Columnas) -->
+            <!-- 2 Tarjetas Principales (Uno a la par del otro) -->
             <div class="team-grid-primary">
                 <div class="team-card team-card-featured">
                     <div class="team-photo-placeholder">
-                        <div class="team-photo-badge">Dirección Estratégica</div>
+                        <div class="team-photo-badge">Dirección</div>
                         <svg class="team-avatar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
@@ -299,7 +316,7 @@
 
                 <div class="team-card team-card-featured">
                     <div class="team-photo-placeholder">
-                        <div class="team-photo-badge">Operaciones & Producto</div>
+                        <div class="team-photo-badge">Tecnología</div>
                         <svg class="team-avatar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
@@ -307,13 +324,13 @@
                     </div>
                     <div class="team-card-info">
                         <h3>Dirección Técnica & IA</h3>
-                        <span class="team-role">Operaciones & Desarrollo</span>
+                        <span class="team-role">Operaciones & IA</span>
                         <p class="team-desc">Implementación de flujos inteligentes, automatizaciones, sistemas de CRM y plataformas escalables.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Tarjetas Secundarias (3 Columnas) -->
+            <!-- 3 Tarjetas Secundarias (Debajo, una a la par de la otra) -->
             <div class="team-grid-secondary">
                 <div class="team-card">
                     <div class="team-photo-placeholder small-photo">
@@ -324,8 +341,8 @@
                     </div>
                     <div class="team-card-info">
                         <h3>Diseño & Identidad</h3>
-                        <span class="team-role">Branding & UI/UX</span>
-                        <p class="team-desc">Diseño visual, identidades corporativas de alto impacto y experiencias de usuario memorables.</p>
+                        <span class="team-role">Branding</span>
+                        <p class="team-desc">Diseño visual, identidades corporativas de alto impacto y experiencias memorables.</p>
                     </div>
                 </div>
 
@@ -337,9 +354,9 @@
                         </svg>
                     </div>
                     <div class="team-card-info">
-                        <h3>Tráfico & Crecimiento</h3>
-                        <span class="team-role">SEO & Media Buyer</span>
-                        <p class="team-desc">Estrategias de adquisición paga, optimización en motores de búsqueda y embudos de conversión.</p>
+                        <h3>Tráfico & Ads</h3>
+                        <span class="team-role">Growth</span>
+                        <p class="team-desc">Estrategias de adquisición paga, optimización en motores de búsqueda y embudos de venta.</p>
                     </div>
                 </div>
 
@@ -351,9 +368,9 @@
                         </svg>
                     </div>
                     <div class="team-card-info">
-                        <h3>Contenido & Comunidad</h3>
-                        <span class="team-role">Social Media & Edición</span>
-                        <p class="team-desc">Producción audiovisual, gestión de audiencias y posicionamiento de marca en redes sociales.</p>
+                        <h3>Contenido & Redes</h3>
+                        <span class="team-role">Social Media</span>
+                        <p class="team-desc">Producción audiovisual, gestión de audiencias y posicionamiento estratégico de marca.</p>
                     </div>
                 </div>
             </div>

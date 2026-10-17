@@ -257,11 +257,70 @@
         });
     }
 
+    /* ====================================================
+       NAVBAR: SCROLL HIDE & MOBILE HAMBURGER TOGGLE
+       ==================================================== */
+    function initNavbar() {
+        var nav = document.getElementById('navbar') || document.querySelector('.site-nav');
+        var toggle = document.getElementById('navToggle');
+        var menu = document.getElementById('navMenu');
+        if (!nav) return;
+
+        // Toggle mobile menu
+        if (toggle && menu) {
+            toggle.addEventListener('click', function() {
+                var isOpen = menu.classList.toggle('active');
+                toggle.classList.toggle('active', isOpen);
+                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            // Close mobile menu when any link is clicked
+            var links = menu.querySelectorAll('a');
+            links.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    menu.classList.remove('active');
+                    toggle.classList.remove('active');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // Hide navbar on scroll down, show on scroll up
+        var lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+        window.addEventListener('scroll', function() {
+            var currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Do not hide navbar if mobile menu is currently open
+            if (menu && menu.classList.contains('active')) return;
+
+            if (currentScrollY > 70) {
+                if (currentScrollY > lastScrollY + 4) {
+                    // Scrolling down -> hide navbar
+                    nav.classList.add('nav-hidden');
+                } else if (currentScrollY < lastScrollY - 4) {
+                    // Scrolling up -> show navbar
+                    nav.classList.remove('nav-hidden');
+                }
+            } else {
+                nav.classList.remove('nav-hidden');
+            }
+            lastScrollY = Math.max(0, currentScrollY);
+        }, { passive: true });
+    }
+
+    // Initialize navbar immediately
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavbar);
+    } else {
+        initNavbar();
+    }
+
     // Init scripts after all resources are fetched
     window.addEventListener('load', function () {
         initPortfolioGSAP();
         initEcosystemLogos();
         initWebGLHero();
+        initNavbar();
     });
 
     // Run preloader dismissal directly (not waiting for load event) 
