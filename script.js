@@ -308,11 +308,35 @@
         }, { passive: true });
     }
 
-    // Initialize navbar immediately
+    /* ====================================================
+       ECOSYSTEM CARDS HOVER INTERACTION ENHANCEMENT
+       ==================================================== */
+    function initEcosystemCards() {
+        var wrapper = document.querySelector('.ecosystem-flow-wrapper');
+        var cards = document.querySelectorAll('.ecosystem-card');
+        if (!wrapper || !cards.length) return;
+
+        cards.forEach(function(card) {
+            card.addEventListener('mouseenter', function() {
+                wrapper.classList.add('is-hovering');
+                card.classList.add('is-active');
+            });
+            card.addEventListener('mouseleave', function() {
+                wrapper.classList.remove('is-hovering');
+                card.classList.remove('is-active');
+            });
+        });
+    }
+
+    // Initialize navbar & ecosystem immediately
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initNavbar);
+        document.addEventListener('DOMContentLoaded', function() {
+            initNavbar();
+            initEcosystemCards();
+        });
     } else {
         initNavbar();
+        initEcosystemCards();
     }
 
     // Init scripts after all resources are fetched
@@ -321,6 +345,7 @@
         initEcosystemLogos();
         initWebGLHero();
         initNavbar();
+        initEcosystemCards();
     });
 
     // Run preloader dismissal directly (not waiting for load event) 

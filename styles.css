@@ -455,53 +455,136 @@ body {
     position: relative;
 }
 
-.ecosystem-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+.ecosystem-flow-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 1.25rem;
+    margin-top: 3.5rem;
     margin-bottom: 3rem;
-    text-align: left;
+    position: relative;
 }
 
 .ecosystem-card {
-    background: var(--surface-glass);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid var(--surface-glass-border);
+    flex: 1 1 0;
+    min-width: 0;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
     border-radius: var(--radius-lg);
-    padding: 2.75rem 2.25rem;
-    box-shadow: var(--surface-shadow);
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2.5rem 2rem;
+    box-shadow: 0 12px 36px rgba(36, 62, 146, 0.07), 0 1px 3px rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
+    text-align: left;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
 }
 
-.ecosystem-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--surface-shadow-hover);
-    border-color: var(--brand-orange);
+/* Hover Dimming & Highlighting (Interconnected Interaction) */
+.ecosystem-flow-wrapper:hover .ecosystem-card,
+.ecosystem-flow-wrapper.is-hovering .ecosystem-card {
+    opacity: 0.48;
+    transform: scale(0.985);
+    filter: grayscale(15%);
 }
 
-.ecosystem-card-header {
+.ecosystem-flow-wrapper .ecosystem-card:hover,
+.ecosystem-flow-wrapper .ecosystem-card.is-active {
+    opacity: 1 !important;
+    transform: translateY(-8px) scale(1.02) !important;
+    filter: none !important;
+    border-color: var(--brand-orange) !important;
+    box-shadow: 0 20px 45px rgba(255, 69, 26, 0.22), 0 0 0 1px rgba(255, 69, 26, 0.35), 0 0 35px rgba(36, 62, 146, 0.12) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    z-index: 10;
+}
+
+/* Flow Connectors Between Cards */
+.ecosystem-flow-arrow {
     display: flex;
     align-items: center;
-    gap: 1.15rem;
-    margin-bottom: 2rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid rgba(150, 180, 222, 0.35);
+    justify-content: center;
+    position: relative;
+    width: 44px;
+    flex-shrink: 0;
+    z-index: 1;
 }
 
-.ecosystem-badge {
-    width: 44px;
-    height: 44px;
-    border-radius: var(--radius-sm);
+.flow-track {
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    right: -8px;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(255, 69, 26, 0.35), rgba(36, 62, 146, 0.45));
+    transform: translateY(-50%);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.flow-pulse {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--brand-orange), transparent);
+    animation: flowPulse 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes flowPulse {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.flow-node {
+    position: relative;
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1.5px solid rgba(36, 62, 146, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-orange);
+    box-shadow: 0 4px 14px rgba(36, 62, 146, 0.12);
+    transition: all 0.35s ease;
+}
+
+.flow-node svg {
+    width: 18px;
+    height: 18px;
+}
+
+.ecosystem-flow-wrapper:hover .flow-node {
+    border-color: var(--brand-orange);
+    box-shadow: 0 0 16px rgba(255, 69, 26, 0.45);
+    transform: scale(1.08);
+}
+
+/* Card Content Elements */
+.eco-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.eco-badge-step {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-main);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #fff;
     flex-shrink: 0;
 }
@@ -522,34 +605,159 @@ body {
     box-shadow: 0 4px 14px rgba(36, 62, 146, 0.3);
 }
 
-.ecosystem-card-header h3 {
+.eco-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.eco-icon-wrap svg {
+    width: 22px;
+    height: 22px;
+}
+
+.ecosystem-card:hover .eco-icon-wrap {
+    transform: scale(1.1) rotate(4deg);
+}
+
+.icon-orange {
+    background: rgba(255, 69, 26, 0.12);
+    color: var(--brand-orange);
+}
+
+.icon-blue {
+    background: rgba(150, 180, 222, 0.25);
+    color: var(--brand-blue-deep);
+}
+
+.icon-navy {
+    background: rgba(36, 62, 146, 0.12);
+    color: var(--brand-blue-deep);
+}
+
+.eco-card-title {
     font-family: var(--font-main);
-    font-size: 1.6rem;
+    font-size: 1.65rem;
     font-weight: 500; /* Satoshi Medium */
     color: var(--text-primary);
+    margin-bottom: 0.65rem;
     letter-spacing: -0.01em;
 }
 
-.ecosystem-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    flex-grow: 1;
+.eco-card-desc {
+    font-size: 0.96rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
 }
 
-.ecosystem-list li {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
+.eco-flow-next {
+    font-size: 0.78rem;
+    color: var(--brand-blue-deep);
+    background: rgba(36, 62, 146, 0.05);
+    padding: 0.45rem 0.85rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
-    gap: 0.95rem;
-    font-weight: 500;
+    justify-content: space-between;
+    gap: 0.5rem;
 }
 
-.eco-bullet {
+.next-target {
     color: var(--brand-orange);
-    font-size: 0.85rem;
+    font-weight: 700;
+    font-size: 0.82rem;
+}
+
+.eco-badges-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1.15rem;
+    border-top: 1px solid rgba(150, 180, 222, 0.25);
+}
+
+.eco-badge {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--brand-blue-deep);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(150, 180, 222, 0.4);
+    padding: 0.35rem 0.8rem;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 2px 6px rgba(36, 62, 146, 0.04);
+    transition: all 0.25s ease;
+}
+
+.ecosystem-card:hover .eco-badge {
+    background: rgba(255, 69, 26, 0.08);
+    border-color: rgba(255, 69, 26, 0.35);
+    color: var(--brand-orange);
+}
+
+/* Banner de Escalabilidad */
+.scalability-banner {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(36, 62, 146, 0.15);
+    border-left: 4px solid var(--brand-orange);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 2rem;
+    max-width: 950px;
+    margin: 0 auto 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    box-shadow: 0 10px 30px rgba(36, 62, 146, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scalability-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(36, 62, 146, 0.12);
+}
+
+.scalability-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 69, 26, 0.12);
+    color: var(--brand-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(255, 69, 26, 0.25);
+}
+
+.scalability-icon-wrap svg {
+    width: 22px;
+    height: 22px;
+}
+
+.scalability-content {
+    text-align: left;
+}
+
+.scalability-title {
+    font-weight: 700;
+    color: var(--brand-blue-deep);
+    font-size: 1.05rem;
+    margin-right: 0.4rem;
+}
+
+.scalability-desc {
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .ecosystem-footer-text {
@@ -566,6 +774,13 @@ body {
     padding: 1.15rem 3.25rem;
     font-size: 1.05rem;
     letter-spacing: 0.05em;
+    position: relative;
+    overflow: hidden;
+}
+
+.ecosystem-cta:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 16px 36px rgba(255, 69, 26, 0.5);
 }
 
 /* ================================================
@@ -613,72 +828,6 @@ body {
 
 .empresa-logo-card:hover img {
     transform: scale(1.08);
-}
-
-/* ================================================
-   CREACIÓN WEB (PORTFOLIO GRID - Fondo Limpio)
-   ================================================ */
-#portfolio-grid-section {
-    padding: 5.5rem 2rem;
-    position: relative;
-}
-
-.works-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-}
-
-.work-card {
-    display: block;
-    text-decoration: none;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    padding: 0;
-    transition: transform 0.35s ease;
-}
-
-.work-card:hover {
-    transform: translateY(-5px);
-}
-
-.work-img-wrapper {
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 0.85rem;
-    background: transparent;
-    border: none;
-}
-
-.work-img-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: var(--radius-sm);
-    box-shadow: 0 8px 24px rgba(36, 62, 146, 0.08);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.work-card:hover .work-img-wrapper img {
-    transform: scale(1.03);
-    box-shadow: 0 14px 32px rgba(36, 62, 146, 0.16);
-}
-
-.work-card h3 {
-    font-family: var(--font-main);
-    font-size: 0.95rem;
-    font-weight: 500; /* Satoshi Medium */
-    text-align: center;
-    letter-spacing: 0.04em;
-    color: var(--text-primary);
-    transition: color 0.3s ease;
-}
-
-.work-card:hover h3 {
-    color: var(--brand-orange);
 }
 
 /* ================================================
@@ -765,10 +914,10 @@ body {
 }
 
 /* ================================================
-   NUESTRO EQUIPO (2 Principales + 3 Secundarias)
+   NUESTRO EQUIPO (2 Principales Grandes + 4 Secundarias Pequeñas)
    ================================================ */
 #equipo {
-    padding: 6rem 2rem;
+    padding: 6.5rem 2rem 5rem;
     position: relative;
 }
 
@@ -776,15 +925,15 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2.25rem;
-    max-width: 950px;
-    margin: 0 auto 2.25rem;
+    max-width: 920px;
+    margin: 0 auto 2.5rem;
 }
 
 .team-grid-secondary {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.75rem;
-    max-width: 1150px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -794,11 +943,13 @@ body {
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--surface-glass-border);
     border-radius: var(--radius-lg);
-    padding: 2.25rem;
+    padding: 2rem 1.5rem;
     box-shadow: var(--surface-shadow);
     text-align: center;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .team-card:hover {
@@ -808,34 +959,45 @@ body {
 }
 
 .team-card-featured {
-    padding: 2.75rem 2.25rem;
+    padding: 2.5rem 2.25rem;
     border-width: 1.5px;
     background: rgba(255, 255, 255, 0.94);
 }
 
-.team-photo-placeholder {
+.team-card-small {
+    padding: 1.5rem 1.15rem;
+}
+
+.team-photo-wrapper {
     width: 100%;
-    aspect-ratio: 16/10;
+    aspect-ratio: 4 / 4.8;
     border-radius: var(--radius-md);
     background: linear-gradient(135deg, rgba(240, 235, 229, 0.8) 0%, rgba(150, 180, 222, 0.25) 100%);
-    border: 2px dashed rgba(150, 180, 222, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 8px 24px rgba(36, 62, 146, 0.08);
 }
 
 .small-photo {
-    aspect-ratio: 16/11;
+    aspect-ratio: 4 / 4.8;
+    margin-bottom: 1rem;
 }
 
-.team-avatar-icon {
-    width: 44px;
-    height: 44px;
-    color: var(--brand-blue-deep);
-    opacity: 0.35;
+.team-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.team-card:hover .team-photo-img {
+    transform: scale(1.05);
 }
 
 .team-photo-badge {
@@ -851,31 +1013,47 @@ body {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     box-shadow: 0 4px 12px rgba(255, 69, 26, 0.3);
+    z-index: 2;
 }
 
 .team-card-info h3 {
     font-family: var(--font-main);
-    font-size: 1.3rem;
-    font-weight: 500; /* Satoshi Medium */
+    font-size: 1.25rem;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.01em;
+}
+
+.team-card-small .team-card-info h3 {
+    font-size: 1.05rem;
 }
 
 .team-role {
     display: inline-block;
     font-family: var(--font-main);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: var(--brand-orange);
     letter-spacing: 0.05em;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.65rem;
     text-transform: uppercase;
+}
+
+.team-card-small .team-role {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .team-desc {
     font-size: 0.92rem;
     color: var(--text-secondary);
     line-height: 1.5;
+}
+
+.team-card-small .team-desc {
+    font-size: 0.84rem;
+    line-height: 1.45;
 }
 
 /* ================================================
@@ -1114,7 +1292,6 @@ svg.partner-icon {
     }
     #ecosistema-servicios,
     #empresas-acompanan,
-    #portfolio-grid-section,
     #benefits,
     #equipo,
     #ecosystem {
@@ -1182,44 +1359,85 @@ svg.partner-icon {
     }
 
     /* NUESTRO ECOSISTEMA EN MÓVIL: 3 CUADROS EN UNA SOLA LÍNEA */
-    .ecosystem-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.45rem;
-        margin-top: 1.75rem;
-        margin-bottom: 1.75rem;
+    .ecosystem-flow-wrapper {
+        display: flex;
+        gap: 0.35rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .ecosystem-flow-arrow {
+        display: none;
     }
     .ecosystem-card {
-        padding: 0.85rem 0.5rem;
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 0.75rem 0.35rem;
         border-radius: var(--radius-sm);
+        border-width: 1px;
     }
-    .ecosystem-card-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.35rem;
-        margin-bottom: 0.65rem;
-        padding-bottom: 0.45rem;
+    .eco-card-top {
+        margin-bottom: 0.35rem;
     }
-    .ecosystem-badge {
-        width: 24px;
-        height: 24px;
-        font-size: 0.7rem;
-        border-radius: 4px;
+    .eco-badge-step {
+        width: 22px;
+        height: 22px;
+        font-size: 0.65rem;
+        border-radius: 5px;
     }
-    .ecosystem-card-header h3 {
-        font-size: 0.85rem;
+    .eco-icon-wrap {
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+    }
+    .eco-icon-wrap svg {
+        width: 13px;
+        height: 13px;
+    }
+    .eco-card-title {
+        font-size: 0.82rem;
+        margin-bottom: 0.25rem;
         line-height: 1.1;
     }
-    .ecosystem-list {
-        gap: 0.45rem;
+    .eco-card-desc {
+        font-size: 0.58rem;
+        line-height: 1.25;
+        margin-bottom: 0.45rem;
     }
-    .ecosystem-list li {
-        font-size: 0.62rem;
-        line-height: 1.22;
-        gap: 0.25rem;
-        word-break: break-word;
+    .eco-flow-next {
+        display: none;
     }
-    .eco-bullet {
+    .eco-badges-wrap {
+        gap: 0.22rem;
+        padding-top: 0.4rem;
+        border-top: 1px solid rgba(150, 180, 222, 0.2);
+    }
+    .eco-badge {
         font-size: 0.5rem;
+        padding: 0.18rem 0.35rem;
+        border-radius: 4px;
+        line-height: 1.15;
+    }
+    .scalability-banner {
+        padding: 0.85rem 0.85rem;
+        gap: 0.65rem;
+        margin-bottom: 1.5rem;
+    }
+    .scalability-icon-wrap {
+        width: 32px;
+        height: 32px;
+    }
+    .scalability-icon-wrap svg {
+        width: 16px;
+        height: 16px;
+    }
+    .scalability-title {
+        font-size: 0.76rem;
+        display: block;
+        margin-bottom: 0.15rem;
+    }
+    .scalability-desc {
+        font-size: 0.72rem;
+        line-height: 1.35;
     }
     .ecosystem-footer-text {
         font-size: 0.88rem;
@@ -1238,66 +1456,64 @@ svg.partner-icon {
         max-width: 95%;
     }
 
-    /* CREACIÓN WEB EN MÓVIL: 4 EN 4 */
-    .works-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0.45rem;
-    }
-    .work-img-wrapper {
-        margin-bottom: 0.35rem;
-    }
-    .work-card h3 {
-        font-size: 0.55rem;
-        letter-spacing: 0.01em;
-        line-height: 1.2;
-    }
-
-    /* EQUIPO EN MÓVIL: 2 PRINCIPALES A LA PAR + 3 SECUNDARIAS DEBAJO A LA PAR */
+    /* EQUIPO EN MÓVIL: 2 PRINCIPALES A LA PAR + 4 SECUNDARIAS DEBAJO A LA PAR */
     .team-grid-primary {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.65rem;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.65rem;
     }
     .team-grid-secondary {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.45rem;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.32rem;
     }
     .team-card {
-        padding: 0.75rem 0.45rem;
+        padding: 0.65rem 0.35rem;
         border-radius: var(--radius-sm);
     }
     .team-card-featured {
-        padding: 0.95rem 0.55rem;
+        padding: 0.85rem 0.55rem;
     }
-    .team-photo-placeholder {
-        aspect-ratio: 16/11;
-        margin-bottom: 0.5rem;
+    .team-card-small {
+        padding: 0.5rem 0.22rem;
+    }
+    .team-photo-wrapper {
+        aspect-ratio: 4 / 4.8;
+        margin-bottom: 0.45rem;
         border-radius: 6px;
     }
     .small-photo {
-        aspect-ratio: 16/12;
-    }
-    .team-avatar-icon {
-        width: 24px;
-        height: 24px;
+        aspect-ratio: 4 / 4.8;
+        margin-bottom: 0.35rem;
     }
     .team-photo-badge {
-        top: 0.3rem;
-        right: 0.3rem;
-        font-size: 0.5rem;
-        padding: 0.15rem 0.4rem;
+        top: 0.25rem;
+        right: 0.25rem;
+        font-size: 0.46rem;
+        padding: 0.12rem 0.35rem;
     }
     .team-card-info h3 {
-        font-size: 0.78rem;
-        margin-bottom: 0.15rem;
+        font-size: 0.72rem;
+        margin-bottom: 0.12rem;
+        line-height: 1.15;
+    }
+    .team-card-small .team-card-info h3 {
+        font-size: 0.56rem;
     }
     .team-role {
-        font-size: 0.62rem;
-        margin-bottom: 0.3rem;
+        font-size: 0.52rem;
+        margin-bottom: 0.25rem;
+    }
+    .team-card-small .team-role {
+        font-size: 0.44rem;
+        margin-bottom: 0.18rem;
     }
     .team-desc {
-        font-size: 0.58rem;
+        font-size: 0.54rem;
         line-height: 1.25;
+    }
+    .team-card-small .team-desc {
+        font-size: 0.45rem;
+        line-height: 1.2;
     }
 
     /* Benefits Checklist móvil */
