@@ -328,6 +328,8 @@
         });
     }
 
+
+
     /* ====================================================
        INTERACTIVE EXPANDABLE PORTFOLIO & FILTERS
        ==================================================== */
@@ -338,7 +340,7 @@
         var bottomCloseBtn = document.getElementById('bottomCollapseBtn');
         var filterBtns = document.querySelectorAll('.portfolio-filter-btn');
         var projectCards = document.querySelectorAll('.portfolio-project-card');
-        var navPortfolioLink = document.querySelector('.nav-link[href="#benefits"]');
+        var navPortfolioLinks = document.querySelectorAll('.nav-link[href="#benefits"], .nav-link[href="#portafolio"]');
 
         if (!toggleBtn || !container) return;
 
@@ -405,14 +407,52 @@
             });
         }
 
-        // Navbar shortcut click: if closed, automatically open it
-        if (navPortfolioLink) {
-            navPortfolioLink.addEventListener('click', function() {
+        // Navbar shortcuts click: if closed, automatically open it
+        navPortfolioLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
                 if (!container.classList.contains('is-open')) {
                     setPortfolioState(true, true);
                 }
             });
+        });
+
+        // Direct link configuration (/portafolio and #portafolio)
+        function handleDirectPortfolioLink() {
+            var path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+            var hash = window.location.hash.toLowerCase();
+
+            var matchesDirectLink = path === '/portafolio' ||
+                                    path.endsWith('/portafolio') ||
+                                    hash === '#portafolio' ||
+                                    hash === '#benefits';
+
+            if (!matchesDirectLink) return;
+
+            // Automatically open the portfolio gallery
+            setPortfolioState(true, false);
+
+            // Wait for preloader to dismiss before scrolling down
+            var preloader = document.getElementById('preloader');
+            var delay = (preloader && !preloader.classList.contains('done')) ? 1900 : 350;
+
+            setTimeout(function() {
+                var target = document.getElementById('portafolio') || document.getElementById('benefits');
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, delay);
         }
+
+        // Check on initial load
+        handleDirectPortfolioLink();
+
+        // Listen for hash changes
+        window.addEventListener('hashchange', function() {
+            var currentHash = window.location.hash.toLowerCase();
+            if (currentHash === '#portafolio' || currentHash === '#benefits') {
+                setPortfolioState(true, true);
+            }
+        });
     }
 
     // Initialize navbar & ecosystem & portfolio immediately

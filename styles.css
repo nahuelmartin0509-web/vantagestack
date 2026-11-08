@@ -836,9 +836,20 @@ body {
 #benefits {
     padding: 6.5rem 2rem 5.5rem;
     position: relative;
+    scroll-margin-top: 85px;
     background: linear-gradient(180deg, rgba(248, 250, 252, 0.95) 0%, rgba(240, 235, 229, 0.75) 35%, rgba(226, 232, 240, 0.5) 70%, rgba(199, 210, 254, 0.3) 100%);
     border-top: 1px solid rgba(150, 180, 222, 0.3);
     border-bottom: 1px solid rgba(150, 180, 222, 0.3);
+}
+
+.section-anchor {
+    position: absolute;
+    top: -85px;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 /* 4 Pilares Visuales */
