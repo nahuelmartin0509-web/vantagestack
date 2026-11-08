@@ -328,15 +328,104 @@
         });
     }
 
-    // Initialize navbar & ecosystem immediately
+    /* ====================================================
+       INTERACTIVE EXPANDABLE PORTFOLIO & FILTERS
+       ==================================================== */
+    function initInteractivePortfolio() {
+        var toggleBtn = document.getElementById('togglePortfolioBtn');
+        var toggleText = document.getElementById('togglePortfolioText');
+        var container = document.getElementById('portfolio-expandable');
+        var bottomCloseBtn = document.getElementById('bottomCollapseBtn');
+        var filterBtns = document.querySelectorAll('.portfolio-filter-btn');
+        var projectCards = document.querySelectorAll('.portfolio-project-card');
+        var navPortfolioLink = document.querySelector('.nav-link[href="#benefits"]');
+
+        if (!toggleBtn || !container) return;
+
+        function setPortfolioState(open, smoothScroll) {
+            if (open) {
+                container.classList.add('is-open');
+                toggleBtn.classList.add('is-expanded');
+                toggleBtn.setAttribute('aria-expanded', 'true');
+                container.setAttribute('aria-hidden', 'false');
+                if (toggleText) toggleText.textContent = 'OCULTAR PORTAFOLIO';
+
+                if (smoothScroll) {
+                    setTimeout(function() {
+                        var tabs = container.querySelector('.portfolio-filter-tabs');
+                        if (tabs) {
+                            tabs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 200);
+                }
+            } else {
+                container.classList.remove('is-open');
+                toggleBtn.classList.remove('is-expanded');
+                toggleBtn.setAttribute('aria-expanded', 'false');
+                container.setAttribute('aria-hidden', 'true');
+                if (toggleText) toggleText.textContent = 'VER PORTAFOLIO';
+
+                if (smoothScroll) {
+                    toggleBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        }
+
+        // Toggle button click
+        toggleBtn.addEventListener('click', function() {
+            var currentlyOpen = container.classList.contains('is-open');
+            setPortfolioState(!currentlyOpen, !currentlyOpen);
+        });
+
+        // Bottom collapse button click
+        if (bottomCloseBtn) {
+            bottomCloseBtn.addEventListener('click', function() {
+                setPortfolioState(false, true);
+            });
+        }
+
+        // Filter tabs click
+        if (filterBtns.length && projectCards.length) {
+            filterBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+
+                    var selectedFilter = btn.getAttribute('data-filter') || 'all';
+
+                    projectCards.forEach(function(card) {
+                        var cardCategory = card.getAttribute('data-category');
+                        if (selectedFilter === 'all' || cardCategory === selectedFilter) {
+                            card.classList.remove('is-filtered-out');
+                        } else {
+                            card.classList.add('is-filtered-out');
+                        }
+                    });
+                });
+            });
+        }
+
+        // Navbar shortcut click: if closed, automatically open it
+        if (navPortfolioLink) {
+            navPortfolioLink.addEventListener('click', function() {
+                if (!container.classList.contains('is-open')) {
+                    setPortfolioState(true, true);
+                }
+            });
+        }
+    }
+
+    // Initialize navbar & ecosystem & portfolio immediately
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             initNavbar();
             initEcosystemCards();
+            initInteractivePortfolio();
         });
     } else {
         initNavbar();
         initEcosystemCards();
+        initInteractivePortfolio();
     }
 
     // Init scripts after all resources are fetched
@@ -346,6 +435,7 @@
         initWebGLHero();
         initNavbar();
         initEcosystemCards();
+        initInteractivePortfolio();
     });
 
     // Run preloader dismissal directly (not waiting for load event) 

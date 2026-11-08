@@ -42,6 +42,7 @@
         <!-- Menú de Navegación / Atajos -->
         <div class="nav-menu" id="navMenu">
             <a href="#ecosistema-servicios" class="nav-link">SERVICIOS</a>
+            <a href="#benefits" class="nav-link">PORTAFOLIO</a>
             <a href="#empresas-acompanan" class="nav-link">EMPRESAS</a>
             <a href="#equipo" class="nav-link">CONOCENOS</a>
             <a href="https://www.instagram.com/esfacilshop/" target="_blank" rel="noopener noreferrer" class="nav-instagram" aria-label="Instagram">
@@ -283,23 +284,314 @@
     </section>
 
     <!-- =============================================
-         BENEFITS / CHECKLIST
+         DISEÑO RESPONSIVE & DESARROLLO WEB + PORTAFOLIO INTERACTIVO
     ============================================== -->
     <section id="benefits">
-        <div class="container benefits-container">
-            <div class="benefits-text">
-                <span class="benefits-eyebrow">Diseño responsive</span>
-                <h2>Tu negocio, en todos lados, al mismo tiempo.</h2>
-                <p>Sitios que se ven y funcionan igual de bien en cualquier dispositivo — sin perder calidad en ningún tamaño de pantalla.</p>
-                <a href="https://wa.me/message/M6RQL6GWVAFLL1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 1.5rem;">Hablemos de tu proyecto</a>
+        <div class="container text-center">
+            <span class="section-eyebrow">DISEÑO RESPONSIVE & DESARROLLO WEB</span>
+            <h2 class="section-title">Tu negocio, en todos lados, al mismo tiempo.</h2>
+            <p class="section-subtitle">
+                Desarrollamos interfaces de alta conversión y plataformas digitales a medida, pensadas para acelerar tus ventas, automatizar tus procesos y posicionar tu marca con autoridad.
+            </p>
+
+            <!-- 4 Pilares Visuales (Valor Comercial) -->
+            <div class="responsive-pillars-grid">
+                <!-- Pilar 1: Mobile-First -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <div class="pillar-icon-box icon-orange">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                                <line x1="12" y1="18" x2="12.01" y2="18"/>
+                            </svg>
+                        </div>
+                        <span class="pillar-number">01</span>
+                    </div>
+                    <h3 class="pillar-title">Diseño 100% Adaptable (Mobile-First)</h3>
+                    <p class="pillar-desc">Interfaces pensadas para verse y navegarse a la perfección tanto en celulares como en computadoras.</p>
+                </div>
+
+                <!-- Pilar 2: Catálogos -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <div class="pillar-icon-box icon-blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                            </svg>
+                        </div>
+                        <span class="pillar-number">02</span>
+                    </div>
+                    <h3 class="pillar-title">Catálogos Interactivos y Autogestionables</h3>
+                    <p class="pillar-desc">Filtros inteligentes en tiempo real para que el usuario encuentre lo que busca en segundos y conexión directa a WhatsApp.</p>
+                </div>
+
+                <!-- Pilar 3: Sistemas & CRM -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <div class="pillar-icon-box icon-navy">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <span class="pillar-number">03</span>
+                    </div>
+                    <h3 class="pillar-title">Sistemas de Gestión y CRM a Medida</h3>
+                    <p class="pillar-desc">Paneles de control integrados para administrar inventario, presupuestos, clientes y finanzas desde cualquier dispositivo.</p>
+                </div>
+
+                <!-- Pilar 4: SEO Local & Velocidad -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <div class="pillar-icon-box icon-orange">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                        </div>
+                        <span class="pillar-number">04</span>
+                    </div>
+                    <h3 class="pillar-title">Velocidad y Posicionamiento (SEO Local)</h3>
+                    <p class="pillar-desc">Código limpio y optimizado para cargar al instante y posicionar el negocio en los primeros resultados de Google.</p>
+                </div>
             </div>
-            <div class="benefits-checklist">
-                <ul>
-                    <li><span class="check-icon">✓</span> Diseño adaptado a cada pantalla</li>
-                    <li><span class="check-icon">✓</span> Carga rápida en cualquier conexión</li>
-                    <li><span class="check-icon">✓</span> SEO optimizado para que te encuentren en Google</li>
-                    <li><span class="check-icon">✓</span> Integración directa con WhatsApp</li>
-                </ul>
+
+            <!-- Botón Principal "VER PORTAFOLIO" -->
+            <div class="portfolio-action-row">
+                <button type="button" id="togglePortfolioBtn" class="btn-primary btn-ver-portafolio" aria-expanded="false" aria-controls="portfolio-expandable">
+                    <svg class="btn-eye-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <span id="togglePortfolioText">VER PORTAFOLIO</span>
+                    <svg class="btn-arrow-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- PORTAFOLIO INTERACTIVO DESPLEGABLE (Sin recargar) -->
+            <div id="portfolio-expandable" class="portfolio-expandable" aria-hidden="true">
+                <!-- Pestañas de Filtro -->
+                <div class="portfolio-filter-tabs" role="tablist" aria-label="Filtros del Portafolio">
+                    <button type="button" class="portfolio-filter-btn active" data-filter="all">Todos (11)</button>
+                    <button type="button" class="portfolio-filter-btn" data-filter="concesionarias">Concesionarias & Automotor</button>
+                    <button type="button" class="portfolio-filter-btn" data-filter="sistemas">Sistemas & Apps</button>
+                    <button type="button" class="portfolio-filter-btn" data-filter="catalogos">Catálogos & E-Commerce</button>
+                    <button type="button" class="portfolio-filter-btn" data-filter="gastronomia">Gastronomía</button>
+                </div>
+
+                <!-- Grilla Interactiva de Proyectos (11 Proyectos) -->
+                <div class="portfolio-interactive-grid" id="portfolioGrid">
+                    <!-- 1. AUTOMOTORES ARGENTINOS -->
+                    <article class="portfolio-project-card" data-category="concesionarias">
+                        <div class="project-mockup-wrapper">
+                            <img src="./WEBS/AUTOMOTORES ARGENTINOS.png" alt="Automotores Argentinos" loading="lazy" class="project-mockup-img">
+                            <a href="https://automotoresargentinos.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-liquid-glass" aria-label="Desplegar Proyecto Automotores Argentinos">
+                                <span class="glass-led"></span>
+                                <span class="glass-text">Desplegar Proyecto ↗</span>
+                            </a>
+                        </div>
+                        <div class="project-card-info">
+                            <div class="project-card-meta">
+                                <span class="project-category-badge">Concesionarias & Automotor</span>
+                            </div>
+                            <h3 class="project-card-title">AUTOMOTORES ARGENTINOS</h3>
+                            <p class="project-card-desc">Plataforma de exhibición vehicular con filtros rápidos y contacto directo para cotizaciones.</p>
+                        </div>
+                    </article>
+
+                    <!-- 2. BIANCHI AUTOMOTORES -->
+                    <article class="portfolio-project-card" data-category="concesionarias">
+                        <div class="project-mockup-wrapper">
+                            <img src="./WEBS/BIANCHI AUTOMOTORES.png" alt="Bianchi Automotores" loading="lazy" class="project-mockup-img">
+                            <a href="https://bianchiautomotorestuc.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-liquid-glass" aria-label="Desplegar Proyecto Bianchi Automotores">
+                                <span class="glass-led"></span>
+                                <span class="glass-text">Desplegar Proyecto ↗</span>
+                            </a>
+                        </div>
+                        <div class="project-card-info">
+                            <div class="project-card-meta">
+                                <span class="project-category-badge">Concesionarias & Automotor</span>
+                            </div>
+                            <h3 class="project-card-title">BIANCHI AUTOMOTORES</h3>
+                            <p class="project-card-desc">Portal automotriz moderno diseñado para maximizar la captación de consultas por unidad desde dispositivos móviles.</p>
+                        </div>
+                    </article>
+
+                    <!-- 3. BUDANER AUTOMOTORES -->
+                    <article class="portfolio-project-card" data-category="concesionarias">
+                        <div class="project-mockup-wrapper">
+                            <img src="./WEBS/BUDANER AUTOMOTORES.png" alt="Budaner Automotores" loading="lazy" class="project-mockup-img">
+                            <a href="https://budaner.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-liquid-glass" aria-label="Desplegar Proyecto Budaner Automotores">
+                                <span class="glass-led"></span>
+                                <span class="glass-text">Desplegar Proyecto ↗</span>
+                            </a>
+                        </div>
+                        <div class="project-card-info">
+                            <div class="project-card-meta">
+                                <span class="project-category-badge">Concesionarias & Automotor</span>
+                            </div>
+                            <h3 class="project-card-title">BUDANER AUTOMOTORES</h3>
+                            <p class="project-card-desc">Web interactiva con inventario actualizado y embudo de contacto directo por WhatsApp.</p>
+                        </div>
+                    </article>
+
+                    <!-- 4. SMG AUTOMOTORES -->
+                    <article class="portfolio-project-card" data-category="concesionarias">
+                        <div class="project-mockup-wrapper">
+                            <img src="./WEBS/SMG AUTOMOTORES.png" alt="SMG Automotores" loading="lazy" class="project-mockup-img">
+                            <a href="https://smgproyecto.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-liquid-glass" aria-label="Desplegar Proyecto SMG Automotores">
+                                <span class="glass-led"></span>
+                                <span class="glass-text">Desplegar Proyecto ↗</span>
+                            </a>
+                        </div>
+                        <div class="project-card-info">
+                            <div class="project-card-meta">
+                                <span class="project-category-badge">Concesionarias & Automotor</span>
+                            </div>
+                            <h3 class="project-card-title">SMG AUTOMOTORES</h3>
+                            <p class="project-card-desc">Ecosistema digital completo con catálogo público de alta conversión conectado en tiempo real a su inventario.</p>
+                        </div>
+                    </article>
+
+                    <!-- 5. CRM AUTOMOTRIZ -->
+                    <article class="portfolio-project-card" data-category="sistemas">
+                        <div class="project-mockup-wrapper">
+                            <img src="./WEBS/CRM AUTOMOTRIZ.png" alt="CRM Automotriz" loading="lazy" class="project-mockup-img">
+                            <a href="https://smgproyecto.vercel.app/admin.html" target="_blank" rel="noopener noreferrer" class="btn-liquid-glass" aria-label="Desplegar Proyecto CRM Automotriz">
+                                <span class="glass-led"></span>
+                                <span class="glass-text">Desplegar Proyecto ↗</span>
+                            </a>
+                        </div>
+                        <div class="project-card-info">
+                            <div class="project-card-meta">
+                                <span class="project-category-badge">Sistemas & Apps</span>
+                            </div>
+                            <h3 class="project-card-title">CRM AUTOMOTRIZ</h3>
+                            <p class="project-card-desc">Software de gestión a medida para concesionarias: control de stock, administración de unidades y panel operativo.</p>
+                        </div>
+                    </article>
+
+                    <!-- 6. FLUXO CONTROL DE GASTOS -->
+                    <article class="portfolio-project-card" data-category="sistemas">
+                        <div class="project-mockup-wrapper">
+                            <img src="./WEBS/FLUXO CONTROL DE GASTOS.png" alt="Fluxo Control de Gastos" loading="lazy" class="project-mockup-img">
+                            <a href="https://fl-bp2kz8s4g-nahuelmartin0509-webs-projects.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-liquid-glass" aria-label="Desplegar Proyecto Fluxo">
+                                <span class="glass-led"></span>
+                                <span class="glass-text">Desplegar Proyecto ↗</span>
+                            </a>
+                        </div>
+                        <div class="project-card-info">
+                            <div class="project-card-meta">
+                                <span class="project-category-badge">Sistemas & Apps</span>
+                            </div>
+                            <h3 class="project-card-title">FLUXO CONTROL DE GASTOS</h3>
+                            <p class="project-card-desc">Aplicación web interactiva para administración financiera, control de flujo de caja y registro de gastos en tiempo real.</p>
+                        </div>
+                    </article>
+
+                    <!-- 7. CARTA ELECTRONICA -->
+                    <article class="portfolio-project-card" data-category="gastronomia">
+                        <div class="project-mockup-wrapper">
+                            <img src="./WEBS/CARTA ELECTRONICA.png" alt="Carta Electrónica" loading="lazy" class="project-mockup-img">
+                            <a href="https://cartaonline-flax.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-liquid-glass" aria-label="Desplegar Proyecto Carta Electrónica">
+                                <span class="glass-led"></span>
+                                <span class="glass-text">Desplegar Proyecto ↗</span>
+                            </a>
+                        </div>
+                        <div class="project-card-info">
+                            <div class="project-card-meta">
+                                <span class="project-category-badge">Gastronomía</span>
+                            </div>
+                            <h3 class="project-card-title">CARTA ELECTRÓNICA</h3>
+                            <p class="project-card-desc">Menú digital interactivo y autogestionable pensado para agilizar pedidos desde el celular en locales gastronómicos.</p>
+                        </div>
+                    </article>
+
+                    <!-- 8. SUSHIWOOD -->
+                    <article class="portfolio-project-card" data-category="gastronomia">
+                        <div class="project-mockup-wrapper">
+                            <img src="./WEBS/SUSHIWOOD.png" alt="Sushiwood" loading="lazy" class="project-mockup-img">
+                            <a href="https://sushiwood-beta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-liquid-glass" aria-label="Desplegar Proyecto Sushiwood">
+                                <span class="glass-led"></span>
+                                <span class="glass-text">Desplegar Proyecto ↗</span>
+                            </a>
+                        </div>
+                        <div class="project-card-info">
+                            <div class="project-card-meta">
+                                <span class="project-category-badge">Gastronomía</span>
+                            </div>
+                            <h3 class="project-card-title">SUSHIWOOD</h3>
+                            <p class="project-card-desc">Sitio web con estética premium para restaurante de sushi, exhibición de carta visual y canal directo de pedidos.</p>
+                        </div>
+                    </article>
+
+                    <!-- 9. IMPORTADO MULTIMEDIA -->
+                    <article class="portfolio-project-card" data-category="catalogos">
+                        <div class="project-mockup-wrapper">
+                            <img src="./WEBS/IMPORTADO MULTIMEDIA.png" alt="Importado Multimedia" loading="lazy" class="project-mockup-img">
+                            <a href="https://importadomultimedia.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-liquid-glass" aria-label="Desplegar Proyecto Importado Multimedia">
+                                <span class="glass-led"></span>
+                                <span class="glass-text">Desplegar Proyecto ↗</span>
+                            </a>
+                        </div>
+                        <div class="project-card-info">
+                            <div class="project-card-meta">
+                                <span class="project-category-badge">Catálogos & E-Commerce</span>
+                            </div>
+                            <h3 class="project-card-title">IMPORTADO MULTIMEDIA</h3>
+                            <p class="project-card-desc">Plataforma digital para venta de tecnología y equipamiento multimedia vehicular con búsqueda ágil.</p>
+                        </div>
+                    </article>
+
+                    <!-- 10. STREET PARTS -->
+                    <article class="portfolio-project-card" data-category="catalogos">
+                        <div class="project-mockup-wrapper">
+                            <img src="./WEBS/STREET PARTS.png" alt="Street Parts" loading="lazy" class="project-mockup-img">
+                            <a href="https://streetprt.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-liquid-glass" aria-label="Desplegar Proyecto Street Parts">
+                                <span class="glass-led"></span>
+                                <span class="glass-text">Desplegar Proyecto ↗</span>
+                            </a>
+                        </div>
+                        <div class="project-card-info">
+                            <div class="project-card-meta">
+                                <span class="project-category-badge">Catálogos & E-Commerce</span>
+                            </div>
+                            <h3 class="project-card-title">STREET PARTS</h3>
+                            <p class="project-card-desc">Tienda especializada en autopartes de fibra de carbono y simuladores F1 con diseño deportivo de alto impacto.</p>
+                        </div>
+                    </article>
+
+                    <!-- 11. PORTAL DEL NORTE -->
+                    <article class="portfolio-project-card" data-category="catalogos">
+                        <div class="project-mockup-wrapper">
+                            <img src="./WEBS/PORTAL DEL NORTE.png" alt="Portal del Norte" loading="lazy" class="project-mockup-img">
+                            <a href="https://portaldelnorte.com.ar/" target="_blank" rel="noopener noreferrer" class="btn-liquid-glass" aria-label="Desplegar Proyecto Portal del Norte">
+                                <span class="glass-led"></span>
+                                <span class="glass-text">Desplegar Proyecto ↗</span>
+                            </a>
+                        </div>
+                        <div class="project-card-info">
+                            <div class="project-card-meta">
+                                <span class="project-category-badge">Catálogos & E-Commerce</span>
+                            </div>
+                            <h3 class="project-card-title">PORTAL DEL NORTE</h3>
+                            <p class="project-card-desc">Plataforma corporativa y catálogo de maquinaria e implementos agrícolas con fichas técnicas para productores.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Footer de Cierre del Portafolio -->
+                <div class="portfolio-collapse-footer">
+                    <button type="button" class="btn-collapse-portfolio" id="bottomCollapseBtn">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>Cerrar Portafolio</span>
+                    </button>
+                    <a href="https://wa.me/message/M6RQL6GWVAFLL1" target="_blank" rel="noopener noreferrer" class="btn-primary btn-portfolio-contact">
+                        Hablemos de tu proyecto &rarr;
+                    </a>
+                </div>
             </div>
         </div>
     </section>
