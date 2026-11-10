@@ -936,6 +936,8 @@ body {
     margin: 1.5rem 0 1rem;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 25;
 }
 
 .btn-ver-portafolio {
@@ -955,6 +957,14 @@ body {
     box-shadow: 0 10px 28px rgba(255, 69, 26, 0.35);
     text-transform: uppercase;
     letter-spacing: 0.06em;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.btn-ver-portafolio * {
+    pointer-events: none;
 }
 
 .btn-ver-portafolio:hover {

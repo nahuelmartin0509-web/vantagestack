@@ -260,7 +260,10 @@
     /* ====================================================
        NAVBAR: SCROLL HIDE & MOBILE HAMBURGER TOGGLE
        ==================================================== */
+    var navbarInitialized = false;
     function initNavbar() {
+        if (navbarInitialized) return;
+        navbarInitialized = true;
         var nav = document.getElementById('navbar') || document.querySelector('.site-nav');
         var toggle = document.getElementById('navToggle');
         var menu = document.getElementById('navMenu');
@@ -311,7 +314,10 @@
     /* ====================================================
        ECOSYSTEM CARDS HOVER INTERACTION ENHANCEMENT
        ==================================================== */
+    var ecosystemInitialized = false;
     function initEcosystemCards() {
+        if (ecosystemInitialized) return;
+        ecosystemInitialized = true;
         var wrapper = document.querySelector('.ecosystem-flow-wrapper');
         var cards = document.querySelectorAll('.ecosystem-card');
         if (!wrapper || !cards.length) return;
@@ -333,7 +339,10 @@
     /* ====================================================
        INTERACTIVE EXPANDABLE PORTFOLIO & FILTERS
        ==================================================== */
+    var portfolioInitialized = false;
     function initInteractivePortfolio() {
+        if (portfolioInitialized) return;
+        portfolioInitialized = true;
         var toggleBtn = document.getElementById('togglePortfolioBtn');
         var toggleText = document.getElementById('togglePortfolioText');
         var container = document.getElementById('portfolio-expandable');
@@ -354,11 +363,14 @@
 
                 if (smoothScroll) {
                     setTimeout(function() {
+                        var nav = document.getElementById('navbar') || document.querySelector('.site-nav');
+                        var navHeight = nav ? nav.offsetHeight : 70;
                         var tabs = container.querySelector('.portfolio-filter-tabs');
                         if (tabs) {
-                            tabs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            var tabsTop = tabs.getBoundingClientRect().top + window.pageYOffset - navHeight - 15;
+                            window.scrollTo({ top: Math.max(0, tabsTop), behavior: 'smooth' });
                         }
-                    }, 200);
+                    }, 150);
                 }
             } else {
                 container.classList.remove('is-open');
@@ -368,20 +380,28 @@
                 if (toggleText) toggleText.textContent = 'VER PORTAFOLIO';
 
                 if (smoothScroll) {
-                    toggleBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    var nav = document.getElementById('navbar') || document.querySelector('.site-nav');
+                    var navHeight = nav ? nav.offsetHeight : 70;
+                    var btnTop = toggleBtn.getBoundingClientRect().top + window.pageYOffset - navHeight - 30;
+                    window.scrollTo({ top: Math.max(0, btnTop), behavior: 'smooth' });
                 }
             }
         }
 
         // Toggle button click
-        toggleBtn.addEventListener('click', function() {
+        toggleBtn.addEventListener('click', function(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
             var currentlyOpen = container.classList.contains('is-open');
-            setPortfolioState(!currentlyOpen, !currentlyOpen);
+            setPortfolioState(!currentlyOpen, false);
         });
 
         // Bottom collapse button click
         if (bottomCloseBtn) {
-            bottomCloseBtn.addEventListener('click', function() {
+            bottomCloseBtn.addEventListener('click', function(e) {
+                if (e) e.preventDefault();
                 setPortfolioState(false, true);
             });
         }
@@ -473,9 +493,6 @@
         initPortfolioGSAP();
         initEcosystemLogos();
         initWebGLHero();
-        initNavbar();
-        initEcosystemCards();
-        initInteractivePortfolio();
     });
 
     // Run preloader dismissal directly (not waiting for load event) 
